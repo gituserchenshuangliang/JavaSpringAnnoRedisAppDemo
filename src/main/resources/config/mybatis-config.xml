@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- settings是 MyBatis 中极为重要的调整设置，它们会改变 MyBatis 的运行时行为。 -->
+    <settings>
+        <!-- 打印查询语句 -->
+        <!--<setting name="logImpl" value="STDOUT_LOGGING" />-->
+        <!-- 自动映射-->
+        <!-- <setting name="autoMappingBehavior" value="true"/>-->
+        <!-- 开启SQL驼峰映射 user_name -> userName -->
+        <!--<setting name="mapUnderscoreToCamelCase" value="true"/>-->
+        <!-- 全局开启延时加载：联级属性只有在使用时才会执行SQL语句，可以提升查询效率 -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+
+    </settings>
+
+    <!-- 别名设置，Mybatis初始化时系统自动设置一些别名，另外可以通过代码注册别名 -->
+    <typeAliases>
+        <!-- 扫描别名 别名首字母小写-->
+        <package name="com.spring.entity"/>
+    </typeAliases>
+
+    <typeHandlers>
+        <typeHandler handler="org.apache.ibatis.type.StringTypeHandler" javaType="string" jdbcType="VARCHAR"/>
+        <package name="com.spring.handler"/>
+    </typeHandlers>
+
+    <!--加载映射文件 -->
+   <!-- <mappers>
+        <mapper resource="mapper/TeacherMapper.xml"/>
+        <mapper resource="mapper/StudentMapper.xml"/>
+        <mapper resource="mapper/ClassRoomMapper.xml"/>
+    </mappers>-->
+</configuration>
